@@ -163,7 +163,8 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
 
     ekf_.F_ <<  1, 0, dt, 0,
                 0, 1, 0, dt,
-                0, 0, 1, 0,
+
+ 0, 0, 1, 0,
                 0, 0, 0, 1;
 
     
@@ -216,7 +217,9 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
             cout << "Update RADAR done!" << endl;
           }
     
-  } else {
+  } 
+ else
+ {
     // Laser updates
         ekf_.R_ = R_laser_;
         ekf_.H_ = H_laser_;
